@@ -5,7 +5,6 @@ export const Home = ({
   trackingUrl: string;
   ackeeDomainId: string;
 }) => {
-  console.log("Home");
   return `<body>
   <div class='panel'></div>
     <script async 
