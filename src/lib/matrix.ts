@@ -21,7 +21,7 @@ function getRandomAsciiChar(): string {
   return `&#${startAsciiCode + getRandomInt(47)};`;
 }
 
-function getChar(posX: number, posY: number, isWhite?: boolean): string {
+function getChar(_posX: number, _posY: number, isWhite?: boolean): string {
   const newChar = getRandomAsciiChar();
   const newGreen = getRandomHex();
   const style = isWhite ? "class='whiteChar'" : `style='color:rgb(0,${newGreen},0)'`;
@@ -49,7 +49,6 @@ function generateMatrix(minWhiteCharCount: number): void {
   const vChars = Math.floor(height / pixelHeight); // Use Math.floor for accurate character count
 
   let whiteCharCount = 0;
-  let totalCount = 0;
 
   matrixString = "";
 
@@ -66,12 +65,10 @@ function generateMatrix(minWhiteCharCount: number): void {
         whiteCharCount++;
       }
 
-      totalCount++;
     }
 
     for (let i = lastCharPosition + 1; i < hChars; i++) {
       newSequence += getChar(i, j) + " ";
-      totalCount++;
     }
 
     matrixString += `<p>${newSequence}</p>`;
